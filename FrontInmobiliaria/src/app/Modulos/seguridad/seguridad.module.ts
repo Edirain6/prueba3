@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { NgxCaptchaModule} from 'ngx-captcha';
 import { SeguridadRoutingModule } from './seguridad-routing.module';
 import { LoginComponent } from './general/login/login.component';
 import { CambiarPassComponent } from './general/cambiar-pass/cambiar-pass.component';
@@ -28,7 +28,8 @@ import { LogoutComponent } from './general/logout/logout.component';
     CommonModule,
     SeguridadRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxCaptchaModule
   ]
 })
 export class SeguridadModule { }

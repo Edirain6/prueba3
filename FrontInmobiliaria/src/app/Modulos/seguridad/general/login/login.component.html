@@ -48,7 +48,15 @@
                 
             </div>                
             <p class="recuperarMensaje" ><a class="recuperar-Link" href="">Olvidaste tu contraseña</a> </p>
-        </div>            
+        </div>  
+        <div class="containercaptcha">
+            <form [formGroup]="formularioLogin">
+            <ngx-recaptcha2 #captchaElem
+            [siteKey]="siteKey"
+            formControlName="recaptcha">
+           </ngx-recaptcha2>
+        </form>
+        </div>          
         <button style="
         
     width: 180px;
@@ -64,6 +72,7 @@
     font-family: 'Nunito';
     font-weight: 500;"  [disabled]="formularioLogin.controls['usuario'].errors" (click)="Login()" class="button" type="submit" name="action" >Entrar</button>
     </form>
+    
     <div class="container-registro" style="display: flex;
     flex-wrap: wrap;
     flex-direction: row;

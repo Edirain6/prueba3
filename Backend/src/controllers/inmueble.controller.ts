@@ -26,7 +26,7 @@ export class InmuebleController {
     @repository(InmuebleRepository)
     public inmuebleRepository : InmuebleRepository,
   ) {}
-  @authenticate("admin")
+
   @post('/inmuebles')
   @response(200, {
     description: 'Inmueble model instance',
@@ -95,7 +95,7 @@ export class InmuebleController {
   ): Promise<Count> {
     return this.inmuebleRepository.updateAll(inmueble, where);
   }
-
+  @authenticate("admin")
   @get('/inmuebles/{id}')
   @response(200, {
     description: 'Inmueble model instance',
@@ -129,7 +129,7 @@ export class InmuebleController {
   ): Promise<void> {
     await this.inmuebleRepository.updateById(id, inmueble);
   }
-
+  @authenticate("admin")
   @put('/inmuebles/{id}')
   @response(204, {
     description: 'Inmueble PUT success',

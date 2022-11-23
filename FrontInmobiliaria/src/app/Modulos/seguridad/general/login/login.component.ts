@@ -19,14 +19,16 @@ export class LoginComponent implements OnInit {
   img = 'https://github.com/Edirain6/Frontend_Nucleo_Prueba/blob/main/image/LOGO_Principal.png?raw=true';
 
   formularioLogin: FormGroup = new FormGroup({});
-
+  
+  siteKey:string="";
+  
   constructor(
     private fb: FormBuilder,
     private servicioSeguridad: SeguridadService,
     private servicioLocalStorage: LocalStorageService,
     private router: Router
   ) { }
-
+  
   ngOnInit(): void {
     this.ConstruccionFormulario();
   }
@@ -36,6 +38,8 @@ export class LoginComponent implements OnInit {
       usuario: ["angrinobriggitte@gmail.com",[Validators.required, Validators.email]],
       pass: ["123456",[Validators.required, Validators.minLength(8)]]
     });
+    recaptcha:["",[Validators.required]]
+    this.siteKey="6LfXGCwjAAAAAPweCwI-Ny88gFcGIJitSG5-hCzs";
   }
 
   Login() {
@@ -58,4 +62,5 @@ export class LoginComponent implements OnInit {
 
     }
   }
+  
 }
